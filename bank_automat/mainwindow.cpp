@@ -47,6 +47,7 @@ void MainWindow::on_btnLogin_clicked()
         reply->deleteLater();
 
         if(response_data.compare("true") == 0) {
+            ui->labelInfo->clear();
             menu *men = new menu();
             men->show();
         }
