@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <qjsondocument.h>
 #include "menu.h"
+#include "mysingleton.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,6 +26,9 @@ void MainWindow::on_btnLogin_clicked()
     loginCardID = ui->lineEditCardID->text();
     loginPinCode = ui->lineEditPinCode->text();
 
+    MySingleton *my = MySingleton::getInstance();
+    my->setCardID(loginCardID);
+
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/login/?idcard="+loginCardID+"&pinCode="+loginPinCode));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
@@ -41,15 +45,15 @@ void MainWindow::on_btnLogin_clicked()
             qApp->processEvents();
         }
         QByteArray response_data = reply->readAll();
-
         qDebug() << "DATA:" +response_data;
-
         reply->deleteLater();
 
         if(response_data.compare("true") == 0) {
             ui->labelInfo->clear();
             menu *men = new menu();
             men->show();
+            ui->lineEditCardID->clear();
+            ui->lineEditPinCode->clear();
         }
         else {
             ui->labelInfo->setText("Väärä ID tai PIN-koodi. Yritä uudelleen.");

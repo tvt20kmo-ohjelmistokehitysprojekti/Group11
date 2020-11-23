@@ -21,18 +21,21 @@ void menu::on_btnWithdraw_clicked()
 {
     withdraw *wd = new withdraw();
     wd->show();
+    this->close();
 }
 
 void menu::on_btnBalance_clicked()
 {
     balance *bal = new balance();
     bal->show();
+    this->close();
 }
 
 void menu::on_btnAction_clicked()
 {
     action *act = new action();
     act->show();
+    this->close();
 }
 
 void menu::on_btnClose_clicked()
