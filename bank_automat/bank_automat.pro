@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
+    mysingleton.cpp \
     withdraw.cpp
 
 HEADERS += \
@@ -21,6 +22,7 @@ HEADERS += \
     balance.h \
     mainwindow.h \
     menu.h \
+    mysingleton.h \
     withdraw.h
 
 FORMS += \
