@@ -8,7 +8,7 @@ class Account_model extends CI_model
     $this->db->select('*');
     $this->db->from('account');
     if($id !== NULL) {
-      $this->db->where('idaccount',$id);
+      $this->db->where('card_idcard',$id);
     }
     return $this->db->get()->result_array();
   }

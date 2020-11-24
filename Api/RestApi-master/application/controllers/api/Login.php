@@ -8,7 +8,7 @@ class Login extends CI_Controller {
         $plaintext_pinCode=$this->input->get('pinCode');
         $encrypted_pinCode=$this->Login_model->check_login($idcard);
 
-        if($encrypted_pinCode==$plaintext_pinCode){
+        if(password_verify($plaintext_pinCode, $encrypted_pinCode)){
           $result=true;
         }
         else{

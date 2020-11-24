@@ -84,16 +84,18 @@ class Card extends REST_Controller {
 
     public function index_post()
     {
-        // Add a new book
+        $clear_pinCode=$this->post('pinCode');
+        $encrypted_pin=password_hash($clear_pinCode, PASSWORD_DEFAULT);
         $add_data=array(
+          'idcard'=>$this->post('idcard'),  
           'owner'=>$this->post('owner'),
-          'pinCode'=>$this->post('pinCode')
+          'pinCode'=>$encrypted_pin
         );
         $insert_id=$this->Card_model->add_Card($add_data);
         if($insert_id)
         {
             $message = [
-                'idcard' => $insert_id,
+                'idcard'=>$this->post('idcard'),
                 'owner'=>$this->post('owner'),
                 'pinCode'=>$this->post('pinCode'),
                 'message' => 'Added a resource'
@@ -102,11 +104,13 @@ class Card extends REST_Controller {
         }
         else
         {
-            // Set the response and exit
-            $this->response([
-                'status' => FALSE,
-                'message' => 'Can not add data'
-            ], REST_Controller::HTTP_CONFLICT); // CAN NOT CREATE (409) being the HTTP response code
+            $message = [
+                'idcard'=>$this->post('idcard'),
+                'owner'=>$this->post('owner'),
+                'pinCode'=>$this->post('pinCode'),
+                'message' => 'Added a resource'
+            ];
+            $this->set_response($message, REST_Controller::HTTP_CREATED);
         }
 
     }

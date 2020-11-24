@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['api/account/balance/(:num)'] = 'api/account/balance/id/$1';
 $route['api/login/login/(:num)'] = 'api/login/login/id/$1';
+$route['api/action/action/(:num)'] = 'api/action/action/id/$1';
 
 $route['api/account/balance/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/account/balance/id/$1/format/$3$4';
 $route['api/login/login/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/login/login/id/$1/format/$3$4'; 
+$route['api/action/action/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/action/action/id/$1/format/$3$4';
