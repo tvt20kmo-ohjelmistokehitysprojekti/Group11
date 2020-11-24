@@ -8,7 +8,7 @@ class Action_model extends CI_model
     $this->db->select('*');
     $this->db->from('action');
     if($id !== NULL) {
-      $this->db->where('idaction',$id);
+      $this->db->where('idaccount',$id);
     }
     return $this->db->get()->result_array();
   }

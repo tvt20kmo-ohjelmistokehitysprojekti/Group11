@@ -84,7 +84,6 @@ class Action extends REST_Controller {
 
     public function index_post()
     {
-        // Add a new book
         $add_data=array(
           'idaccount'=>$this->post('idaccount'),
           'action'=>$this->post('action'),
