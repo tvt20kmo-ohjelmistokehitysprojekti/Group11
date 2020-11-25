@@ -15,6 +15,9 @@ public:
     explicit action(QWidget *parent = nullptr);
     ~action();
 
+private slots:
+    void on_btnShowAction_clicked();
+
 private:
     Ui::action *ui;
 };
