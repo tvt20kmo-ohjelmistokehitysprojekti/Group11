@@ -1,5 +1,11 @@
 #include "action.h"
+#include "mysingleton.h"
 #include "ui_action.h"
+#include <QNetworkAccessManager>
+#include <QtNetwork>
+#include <QJsonDocument>
+#include <qjsondocument.h>
+#include <QJsonValue>
 
 action::action(QWidget *parent) :
     QWidget(parent),
@@ -11,4 +17,37 @@ action::action(QWidget *parent) :
 action::~action()
 {
     delete ui;
+}
+
+void action::on_btnShowAction_clicked()
+{
+    MySingleton *my = MySingleton::getInstance();
+    QString idCard = my->getCardID();
+
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/action/id/"+idCard));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QString username = "admin";
+        QString password = "1234";
+        QString concatenatedCredentials = username + ":" + password;
+            QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+            QString headerData = "Basic " + data;
+            request.setRawHeader("Authorization", headerData.toLocal8Bit());
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.get(request);
+        while(!reply->isFinished()) {
+            qApp->processEvents();
+        }
+        QByteArray response_data = reply->readAll();
+
+        QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+        QJsonObject jsobj = json_doc.object();
+        QJsonArray jsarr = json_doc.array();
+
+        QString action;
+        foreach(const QJsonValue &value, jsarr) {
+            QJsonObject jsob = value.toObject();
+            action+=jsob["idaction"].toString()+", "+jsob["idaccount"].toString()+", "+jsob["action"].toString()+", "+jsob["action_time"].toString()+", "+jsob["amount"].toString()+"\r";
+            ui->textEditAction->setText(action);
+        }
+        reply->deleteLater();
 }
