@@ -18,6 +18,7 @@ balance::balance(QWidget *parent) :
 
 balance::~balance()
 {
+    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
     delete ui;
 }
 
