@@ -27,7 +27,7 @@ void balance::on_btnbalance_clicked()
     QString idCard = my->getCardID();
     QString balance = ui->labelBalance->text();
 
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/account/balance/8"));
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/account/balance/"+idCard));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
         QString username="admin";
