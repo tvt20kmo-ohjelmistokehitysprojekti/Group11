@@ -1,4 +1,5 @@
 #include "action.h"
+#include "menu.h"
 #include "mysingleton.h"
 #include "ui_action.h"
 #include <QNetworkAccessManager>
@@ -11,6 +12,7 @@ action::action(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::action)
 {
+    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
     ui->setupUi(this);
 }
 
@@ -24,7 +26,7 @@ void action::on_btnShowAction_clicked()
     MySingleton *my = MySingleton::getInstance();
     QString idCard = my->getCardID();
 
-    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/action/id/"+idCard));
+    QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/action/action/id/"+idCard));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
         QString username = "admin";
         QString password = "1234";
@@ -46,8 +48,20 @@ void action::on_btnShowAction_clicked()
         QString action;
         foreach(const QJsonValue &value, jsarr) {
             QJsonObject jsob = value.toObject();
-            action+=jsob["idaction"].toString()+", "+jsob["idaccount"].toString()+", "+jsob["action"].toString()+", "+jsob["action_time"].toString()+", "+jsob["amount"].toString()+"\r";
+            action+="  "+jsob["action"].toString()+"              "+jsob["action_time"].toString()+"                    "+jsob["amount"].toString()+" €\r";
             ui->textEditAction->setText(action);
         }
         reply->deleteLater();
+}
+
+void action::on_btnBack_clicked()
+{
+    this->close();
+    menu *men = new menu();
+    men->show();
+}
+
+void action::on_btnClose_clicked()
+{
+    this->close();
 }
