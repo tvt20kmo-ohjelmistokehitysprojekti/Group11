@@ -18,6 +18,10 @@ public:
 private slots:
     void on_btnShowAction_clicked();
 
+    void on_btnBack_clicked();
+
+    void on_btnClose_clicked();
+
 private:
     Ui::action *ui;
 };
