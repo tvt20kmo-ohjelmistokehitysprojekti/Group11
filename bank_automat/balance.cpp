@@ -4,7 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
-#include <QNetworkReply>
+#include <QtNetwork>
 #include <QNetworkRequest>
 #include "mainwindow.h"
 #include "menu.h"
@@ -13,11 +13,13 @@ balance::balance(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::balance)
 {
+    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
     ui->setupUi(this);
 }
 
 balance::~balance()
 {
+    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
     delete ui;
 }
 
@@ -25,7 +27,6 @@ void balance::on_btnbalance_clicked()
 {
     MySingleton *my = MySingleton::getInstance();
     QString idCard = my->getCardID();
-    QString balance = ui->labelBalance->text();
 
     QNetworkRequest request(QUrl("http://www.students.oamk.fi/~t9satu01/Group11/Api/RestApi-master/index.php/api/account/balance/"+idCard));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -37,25 +38,25 @@ void balance::on_btnbalance_clicked()
            QString headerData = "Basic " + data;
            request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
-           QJsonObject json;
-           json.insert("idkortti",idCard);
-           json.insert("Saldo", balance);
            QNetworkAccessManager nam;
-           QNetworkReply *reply = nam.post(request, QJsonDocument(json).toJson());
+           QNetworkReply *reply = nam.get(request);
            while(!reply->isFinished()) {
                qApp->processEvents();
            }
-           QString response_data = reply->readAll();
-           qDebug() << response_data;
+           QByteArray response_data = reply->readAll();
+
+           QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+           QJsonObject jsobj = json_doc.object();
+           QJsonArray jsarr = json_doc.array();
+
+           QString balance;
+           foreach (const QJsonValue &value, jsarr) {
+             QJsonObject jsob = value.toObject();
+             balance+=jsob["balance"].toString();
+             ui->labelBalance->setText("Saldo on: "+balance+ " €.");
+           }
 
            reply->deleteLater();
-
-           if(response_data == '1') {
-               ui->labelBalance->setText("Tilin saldo on " +balance+ " €.");
-           }
-           else {
-               ui->labelBalance->setText("Tilillä ei ole rahaa.");
-           }
 
 }
 
