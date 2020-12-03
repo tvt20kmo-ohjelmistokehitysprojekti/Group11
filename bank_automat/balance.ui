@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="btnbalance">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>130</y>
-     <width>121</width>
+     <width>141</width>
      <height>41</height>
     </rect>
    </property>
@@ -34,10 +34,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>280</x>
      <y>60</y>
-     <width>51</width>
-     <height>21</height>
+     <width>201</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -48,11 +48,14 @@
    <property name="text">
     <string>Saldo</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnClose">
    <property name="geometry">
     <rect>
-     <x>290</x>
+     <x>280</x>
      <y>360</y>
      <width>201</width>
      <height>41</height>
@@ -69,9 +72,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QPushButton" name="btnBack">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>30</y>
-     <width>111</width>
+     <x>130</x>
+     <y>71</y>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -100,6 +103,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

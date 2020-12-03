@@ -21,9 +21,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>40</y>
-     <width>151</width>
+     <x>280</x>
+     <y>60</y>
+     <width>201</width>
      <height>61</height>
     </rect>
    </property>
@@ -107,9 +107,9 @@
   <widget class="QPushButton" name="btnClose">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>290</x>
      <y>500</y>
-     <width>201</width>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -125,7 +125,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>50</y>
+     <y>71</y>
      <width>91</width>
      <height>41</height>
     </rect>
