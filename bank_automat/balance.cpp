@@ -53,7 +53,7 @@ void balance::on_btnbalance_clicked()
            foreach (const QJsonValue &value, jsarr) {
              QJsonObject jsob = value.toObject();
              balance+=jsob["balance"].toString();
-             ui->labelBalance->setText("Saldo on: "+balance+ " €.");
+             ui->labelBalance->setText("Tilin saldo on: "+balance+ " €");
            }
 
            reply->deleteLater();

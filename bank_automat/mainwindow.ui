@@ -36,6 +36,9 @@
     <property name="text">
      <string>Kirjautuminen</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">

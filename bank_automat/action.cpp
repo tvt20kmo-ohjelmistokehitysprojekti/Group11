@@ -48,7 +48,7 @@ void action::on_btnShowAction_clicked()
         QString action;
         foreach(const QJsonValue &value, jsarr) {
             QJsonObject jsob = value.toObject();
-            action+="  "+jsob["action"].toString()+"              "+jsob["action_time"].toString()+"                    "+jsob["amount"].toString()+" €\r";
+            action+="        "+jsob["action"].toString()+"                  "+jsob["action_time"].toString()+"                 "+jsob["amount"].toString()+" €\r";
             ui->textEditAction->setText(action);
         }
         reply->deleteLater();
