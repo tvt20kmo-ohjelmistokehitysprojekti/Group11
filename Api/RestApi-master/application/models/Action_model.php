@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class Action_model extends CI_model
 {
   function get_action($id){
