@@ -1,7 +1,5 @@
 <?php
-/**
- *
- */
+
 class Card_model extends CI_model
 {
   function get_card($id){
