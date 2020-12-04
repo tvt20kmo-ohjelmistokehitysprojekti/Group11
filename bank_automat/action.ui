@@ -37,7 +37,7 @@
   <widget class="QTextEdit" name="textEditAction">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>70</x>
      <y>230</y>
      <width>591</width>
      <height>281</height>
@@ -57,7 +57,7 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnClose">
@@ -116,7 +116,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
   <widget class="QTextEdit" name="textEditTitles">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>70</x>
      <y>190</y>
      <width>591</width>
      <height>41</height>
@@ -135,13 +135,13 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Tapahtuma:                    Aika:                       Summa:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    Tapahtuma:                          Aika:                          Summa:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>230</x>
      <y>190</y>
      <width>4</width>
      <height>322</height>
@@ -154,7 +154,7 @@ p, li { white-space: pre-wrap; }
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>520</x>
      <y>190</y>
      <width>4</width>
      <height>322</height>
